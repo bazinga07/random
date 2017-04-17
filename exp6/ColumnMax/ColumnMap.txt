@@ -1,0 +1,35 @@
+import java.io.IOException;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+public class ColumnMap extends Mapper<LongWritable, Text, Text, IntWritable>
+{
+int values[] = new int[100];
+String word[] ; int maxValue = 0,linenum =0;
+public void map(LongWritable key, Text value, Context context) throws
+IOException, InterruptedException
+{
+String line = value.toString();
+word = line.split(",");
+for (int i = 0; i < 2; i++)
+{
+values[i] = Integer.parseInt(word[i]);
+//values1[i] = Integer.parseInt(word[i]);
+}
+if(values[0] >values[1])
+{
+	maxValue = values[0];
+}
+else
+{
+	maxValue=values[1];
+}
+
+String text = ""+(linenum+1)+"\t"+values[0]+"\t"+values[1]+"";
+if(linenum>=0)
+{ context.write(new Text(text), new IntWritable(maxValue));
+}
+linenum++;
+}
+}

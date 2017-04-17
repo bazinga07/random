@@ -1,0 +1,7 @@
+//5b input
+
+mango apple bannana
+apple grapes jackfruit
+jackfruit bannana grapes 
+grapes mango grapes
+cherry pineapple

@@ -1,0 +1,9 @@
+//5b output
+
+apple	2
+bannana	2
+cherry	1
+grapes	4
+jackfruit	2
+mango	2
+pineapple	1
